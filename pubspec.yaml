@@ -1,6 +1,6 @@
-name: numero_extenso
+name: dart_numero_extenso_br
 description: Um método para converter números para valor monetário por extenso
-version: 0.0.1
+version: 0.0.2
 homepage:
 
 environment:
@@ -10,7 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  intl: any
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:
