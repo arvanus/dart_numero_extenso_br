@@ -1,4 +1,4 @@
-import 'package:dart_numero_extenso_br/flutter_numero_extenso_br.dart';
+import 'package:dart_numero_extenso_br/dart_numero_extenso_br.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 
