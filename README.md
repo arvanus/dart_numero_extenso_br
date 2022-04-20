@@ -11,12 +11,14 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages). 
 -->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+Um método para converter números para valor monetário por extenso, para português brasileiro
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+Exemplo:
+`Extenso.descrever(14051234567890.63)`
+Apresentará o retorno (String):
+`quatorze trilhões, cinquenta e um bilhões, duzentos e trinta e quatro milhões, quinhentos e sessenta e sete mil, oitocentos e noventa reais e sessenta e três centavos`
 
 ## Getting started
 
@@ -25,15 +27,17 @@ start using the package.
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
+First, add this package to your project:
+`dart pub add dart_numero_extenso_br`
 
+Then, at your code import the library and use:
 ```dart
-const like = 'sample';
+import 'package:dart_numero_extenso_br/dart_numero_extenso_br.dart';
+...
+
+Extenso.descrever(14051234567890.63)
 ```
 
 ## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+Pull requests and open issues at: https://github.com/arvanus/dart_numero_extenso_br

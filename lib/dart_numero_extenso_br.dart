@@ -4,13 +4,12 @@ import 'package:intl/intl.dart';
 
 /// Um método para converter números para valor monetário por extenso
 class Extenso {
-
   /// Retorna o número monetário por extenso, portugues do Brasil
-  /// Código convertido do PHP dos seguintes links: 
+  /// Código convertido do PHP dos seguintes links:
   /// https://pt.stackoverflow.com/questions/99460/como-converter-n%C3%BAmero-em-float-para-n%C3%BAmero-por-extenso-no-php
   /// https://recursosdophp.blogspot.com/2012/04/ola-seguidores-do-php-bom-eu-fiz.html
   /// Autor original desconhecido
-  /// 
+  ///
   static String descrever(double valor) {
     var singular = [], plural = [], u = [];
     singular = [
