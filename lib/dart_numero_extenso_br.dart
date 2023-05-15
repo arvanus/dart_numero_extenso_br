@@ -13,124 +13,124 @@ class Extenso {
   static String descrever(double valor) {
     var singular = [], plural = [], u = [];
     singular = [
-      "centavo",
-      "real",
-      "mil",
-      "milhão",
-      "bilhão",
-      "trilhão",
-      "quatrilhão"
+      'centavo',
+      'real',
+      'mil',
+      'milhão',
+      'bilhão',
+      'trilhão',
+      'quatrilhão'
     ];
     plural = [
-      "centavos",
-      "reais",
-      "mil",
-      "milhões",
-      "bilhões",
-      "trilhões",
-      "quatrilhões"
+      'centavos',
+      'reais',
+      'mil',
+      'milhões',
+      'bilhões',
+      'trilhões',
+      'quatrilhões'
     ];
     u = [
-      "",
-      "um",
-      "dois",
-      "três",
-      "quatro",
-      "cinco",
-      "seis",
-      "sete",
-      "oito",
-      "nove"
+      '',
+      'um',
+      'dois',
+      'três',
+      'quatro',
+      'cinco',
+      'seis',
+      'sete',
+      'oito',
+      'nove'
     ];
 
-    var c = [
-      "",
-      "cem",
-      "duzentos",
-      "trezentos",
-      "quatrocentos",
-      "quinhentos",
-      "seiscentos",
-      "setecentos",
-      "oitocentos",
-      "novecentos"
+    final c = [
+      '',
+      'cem',
+      'duzentos',
+      'trezentos',
+      'quatrocentos',
+      'quinhentos',
+      'seiscentos',
+      'setecentos',
+      'oitocentos',
+      'novecentos'
     ];
-    var d = [
-      "",
-      "dez",
-      "vinte",
-      "trinta",
-      "quarenta",
-      "cinquenta",
-      "sessenta",
-      "setenta",
-      "oitenta",
-      "noventa"
+    final d = [
+      '',
+      'dez',
+      'vinte',
+      'trinta',
+      'quarenta',
+      'cinquenta',
+      'sessenta',
+      'setenta',
+      'oitenta',
+      'noventa'
     ];
-    var d10 = [
-      "dez",
-      "onze",
-      "doze",
-      "treze",
-      "quatorze",
-      "quinze",
-      "dezesseis",
-      "dezesete",
-      "dezoito",
-      "dezenove"
+    final d10 = [
+      'dez',
+      'onze',
+      'doze',
+      'treze',
+      'quatorze',
+      'quinze',
+      'dezesseis',
+      'dezesete',
+      'dezoito',
+      'dezenove'
     ];
 
     var z = 0;
-    var rt = "";
-    var f = NumberFormat.currency(name: "");
+    var rt = '';
+    final f = NumberFormat.currency(name: '');
     // Precisamos o número no seguinte padrão: 1.405.123.456.789.63
-    String valorS = f.format(valor).replaceAll(",", ".");
+    final String valorS = f.format(valor).replaceAll(',', '.');
 
-    var inteiro = valorS.split(".");
+    final inteiro = valorS.split('.');
     for (var i = 0; i < inteiro.length; i++) {
       for (var ii = inteiro[i].length; ii < 3; ii++) {
-        inteiro[i] = "0" + inteiro[i];
+        inteiro[i] = '0${inteiro[i]}';
       }
     }
-    var fim =
+    final fim =
         inteiro.length - (int.parse(inteiro[inteiro.length - 1]) > 0 ? 1 : 2);
-    var r = "";
+    var r = '';
     for (var i = 0; i < inteiro.length; i++) {
-      var valor = int.parse(inteiro[i]);
-      var rc = ((valor > 100) && (valor < 200))
-          ? "cento"
+      final valor = int.parse(inteiro[i]);
+      final rc = ((valor > 100) && (valor < 200))
+          ? 'cento'
           : c[int.parse(inteiro[i][0])];
-      var rd =
-          (int.parse(inteiro[i][1]) < 2) ? "" : d[int.parse(inteiro[i][1])];
-      var ru = (valor > 0)
+      final rd =
+          (int.parse(inteiro[i][1]) < 2) ? '' : d[int.parse(inteiro[i][1])];
+      final ru = (valor > 0)
           ? ((int.parse(inteiro[i][1]) == 1)
               ? d10[int.parse(inteiro[i][2])]
               : u[int.parse(inteiro[i][2])])
-          : "";
+          : '';
 
       r = rc +
-          ((rc.isNotEmpty && (rd.isNotEmpty || ru.isNotEmpty)) ? " e " : "") +
+          ((rc.isNotEmpty && (rd.isNotEmpty || ru.isNotEmpty)) ? ' e ' : '') +
           rd +
-          ((rd.isNotEmpty && ru.isNotEmpty) ? " e " : "") +
+          ((rd.isNotEmpty && ru.isNotEmpty) ? ' e ' : '') +
           ru;
-      var t = inteiro.length - 1 - i;
-      r += r.isNotEmpty ? " " + (valor > 1 ? plural[t] : singular[t]) : "";
-      if (inteiro[i] == "000") {
+      final t = inteiro.length - 1 - i;
+      r += r.isNotEmpty ? ' ' + (valor > 1 ? plural[t] : singular[t]) : '';
+      if (inteiro[i] == '000') {
         z++;
       } else if (z > 0) {
         z--;
       }
       if ((t == 1) && (z > 0) && (int.parse(inteiro[0]) > 0)) {
-        r += ((z > 1) ? " de " : "") + plural[t];
+        r += ((z > 1) ? ' de ' : '') + plural[t];
       }
       if (r.isNotEmpty) {
         rt = rt +
             (((i > 0) && (i <= fim) && (int.parse(inteiro[0]) > 0) && (z < 1))
-                ? ((i < fim) ? ", " : " e ")
-                : " ") +
+                ? ((i < fim) ? ', ' : ' e ')
+                : ' ') +
             r;
       }
     }
-    return (rt.isNotEmpty ? rt : "zero").trim();
+    return (rt.isNotEmpty ? rt : 'zero').trim();
   }
 }
