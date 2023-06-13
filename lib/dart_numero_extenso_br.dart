@@ -3,7 +3,7 @@ library numero_extenso;
 import 'package:intl/intl.dart';
 
 /// Um método para converter números para valor monetário por extenso
-class Extenso {
+class DescreverExtenso {
   /// Retorna o número monetário por extenso, portugues do Brasil
   /// Código convertido do PHP dos seguintes links:
   /// https://pt.stackoverflow.com/questions/99460/como-converter-n%C3%BAmero-em-float-para-n%C3%BAmero-por-extenso-no-php
